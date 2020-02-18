@@ -1,4 +1,5 @@
 import React from 'react';
+import Header from './components/header/header.component.jsx';
 
 export default class App extends React.Component {
     constructor(props) {
@@ -6,11 +7,12 @@ export default class App extends React.Component {
     }
     render() {
         return (
-            <React.Fragment>
+            <main>
+                <Header />
                 <h1 className="title">
-                React+Redux hangman
+                React+Redux
                 </h1>
-            </React.Fragment>
+            </main>
         );
     }
 }
