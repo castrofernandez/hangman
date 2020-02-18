@@ -1,0 +1,25 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`First test suite First test 1`] = `
+Array [
+  <header
+    className="header"
+  >
+    App Header
+  </header>,
+  <section
+    className="body"
+  >
+    <h1
+      className="title"
+    >
+      React+Redux boilerplate
+    </h1>
+  </section>,
+  <footer
+    className="header"
+  >
+    App Footer
+  </footer>,
+]
+`;
