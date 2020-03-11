@@ -1,10 +1,9 @@
 import React from 'react';
 
-import LanguageSelector from './language.selector.jsx';
+import LanguageSelector from './language.selector';
 
 const Header = ({ }) => (
     <header>
-        header
         <LanguageSelector />
     </header>
 );
