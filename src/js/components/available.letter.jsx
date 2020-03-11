@@ -5,19 +5,31 @@ import styled from 'styled-components';
 import letterContainer from '../containers/letter.container';
 
 const Letter = styled.a`
+    box-sizing: border-box;
     display: inline-block;
     font-size: 30px;
-    padding: 20px;
+    padding: 10px;
+    margin: 4px;
     cursor: pointer;
+    border: 3px solid transparent;
+    border-radius: 50%;
+    min-width: 60px;
+    text-align: center;
 
     &.disabled {
         color: gray;
         cursor: default;
+        border-color: gray;
+
+        &.contained {
+            border-color: red;
+        }
     }
 `;
 
-const AvailableLetter = ({ letter, addLetter }) => {
+const AvailableLetter = ({ letter, word, addLetter }) => {
     const [enabled, setEnabled] = useState(true);
+    const isContained = word.split('').includes(letter);
 
     const onClick = (e) => {
         e.preventDefault();
@@ -26,12 +38,14 @@ const AvailableLetter = ({ letter, addLetter }) => {
     };
 
     return (
-        <Letter className={enabled ? 'enabled' : 'disabled'} onClick={onClick}>{ letter }</Letter>
+        <Letter className={`${isContained ? 'contained' : ''} ${enabled ? 'enabled' : 'disabled'}`}
+            onClick={onClick}>{ letter }</Letter>
     );
 };
 
 AvailableLetter.propTypes = {
     letter: PropTypes.string.isRequired,
+    word: PropTypes.string.isRequired,
     addLetter: PropTypes.func.isRequired
 };
 

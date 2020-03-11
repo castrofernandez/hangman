@@ -7,7 +7,8 @@ export default function(component) {
     const mapStateToProps = function(state) {
         return {
             remaining: state.remaining,
-            chosen: state.chosen
+            chosen: state.chosen,
+            word: state.word
         };
     };
 
