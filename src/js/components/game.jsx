@@ -1,14 +1,20 @@
 import React, { useContext, useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
+import styled from 'styled-components';
 
 import TranslationContext from '../context/translations';
 import gameContainer from '../containers/game.container';
 import WordLetter from './word.letter';
 import AvailableLetters from './available.letters';
 
+const Word = styled.div`
+    display: flex;
+    justify-content: center;
+`;
+
 const getRandomWord = ({ animals = [] }) => animals[Math.floor(Math.random() * animals.length)];
 
-const Game = ({ language, changeWord }) => {
+const Game = ({ language, changeWord, chosen }) => {
     const translations = useContext(TranslationContext);
     const [word, setWord] = useState('');
 
@@ -24,9 +30,13 @@ const Game = ({ language, changeWord }) => {
         <section>
             game
             <p>{ word }</p>
-            {
-                word.split('').map((letter, index) => <WordLetter key={index} letter={letter} />)
-            }
+            <Word>
+                {
+                    word.split('').map((letter, index) => (
+                        <WordLetter key={index} letter={letter} guessed={chosen.includes(letter)} />)
+                    )
+                }
+            </Word>
             <AvailableLetters />
         </section>
     );
@@ -34,7 +44,8 @@ const Game = ({ language, changeWord }) => {
 
 Game.propTypes = {
     language: PropTypes.string.isRequired,
-    changeWord: PropTypes.func.isRequired
+    changeWord: PropTypes.func.isRequired,
+    chosen: PropTypes.array.isRequired
 };
 
 export default gameContainer(Game);

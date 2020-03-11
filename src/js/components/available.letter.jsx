@@ -20,9 +20,11 @@ const Letter = styled.a`
         color: gray;
         cursor: default;
         border-color: gray;
+        text-decoration: line-through;
 
         &.contained {
             border-color: red;
+            text-decoration: none;
         }
     }
 `;
