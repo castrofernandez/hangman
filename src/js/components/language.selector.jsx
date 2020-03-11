@@ -5,7 +5,6 @@ import styled from 'styled-components';
 import LANGUAGES from '../constants/languages';
 import languageContainer from '../containers/language.container';
 import TranslationContext from '../context/translations';
-// import { getTranslations } from '../../translations';
 
 const List = styled.ul`
     margin: 0;
