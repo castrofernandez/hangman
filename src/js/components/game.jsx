@@ -2,19 +2,23 @@ import React, { useContext, useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 
 import TranslationContext from '../context/translations';
-import languageContainer from '../containers/language.container';
+import gameContainer from '../containers/game.container';
 import WordLetter from './word.letter';
 import AvailableLetters from './available.letters';
 
 const getRandomWord = ({ animals = [] }) => animals[Math.floor(Math.random() * animals.length)];
 
-const Game = ({ language }) => {
+const Game = ({ language, changeWord }) => {
     const translations = useContext(TranslationContext);
-    const [word, setWord] = useState(getRandomWord(translations.words));
+    const [word, setWord] = useState('');
 
-    useEffect(() => {
-        setWord(getRandomWord(translations.words));
-    }, [language]);
+    const onChangeWord = () => {
+        const word = getRandomWord(translations.words);
+        changeWord(word);
+        setWord(word);
+    };
+
+    useEffect(onChangeWord, [language]);
 
     return (
         <section>
@@ -29,7 +33,8 @@ const Game = ({ language }) => {
 };
 
 Game.propTypes = {
-    language: PropTypes.string.isRequired
+    language: PropTypes.string.isRequired,
+    changeWord: PropTypes.func.isRequired
 };
 
-export default languageContainer(Game);
+export default gameContainer(Game);
