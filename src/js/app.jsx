@@ -1,18 +1,20 @@
 import React from 'react';
-import Header from './components/header/header.component.jsx';
+import PropTypes from 'prop-types';
+import Header from './components/header.jsx';
+import TranslationContext from './context/translations';
+import Title from './components/title.jsx';
+import { getTranslations } from './translations';
+import languageContainer from './containers/language.container';
 
-export default class App extends React.Component {
-    constructor(props) {
-        super(props);
-    }
-    render() {
-        return (
-            <main>
-                <Header />
-                <h1 className="title">
-                React+Redux
-                </h1>
-            </main>
-        );
-    }
-}
+const App = ({ language }) => (
+    <TranslationContext.Provider value={getTranslations(language)}>
+        <Header />
+        <Title />
+    </TranslationContext.Provider>
+);
+
+App.propTypes = {
+    language: PropTypes.string.isRequired
+};
+
+export default languageContainer(App);

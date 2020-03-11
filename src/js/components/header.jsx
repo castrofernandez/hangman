@@ -1,6 +1,6 @@
 import React from 'react';
 
-import LanguageSelector from '../languageSelector/language.selector.component.jsx';
+import LanguageSelector from './language.selector.jsx';
 
 const Header = ({ }) => (
     <header>
