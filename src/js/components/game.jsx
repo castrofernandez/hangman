@@ -6,6 +6,7 @@ import TranslationContext from '../context/translations';
 import gameContainer from '../containers/game.container';
 import WordLetter from './word.letter';
 import AvailableLetters from './available.letters';
+import Hangman from './hangman';
 
 const Word = styled.div`
     display: flex;
@@ -13,6 +14,10 @@ const Word = styled.div`
 `;
 
 const getRandomWord = ({ animals = [] }) => animals[Math.floor(Math.random() * animals.length)];
+
+const getGuessed = (word, chosen) => chosen.filter((letter) => word.includes(letter));
+
+const getNumberFailures = (word = [], chosen = []) => chosen.length - getGuessed(word, chosen).length;
 
 const Game = ({ language, changeWord, chosen }) => {
     const translations = useContext(TranslationContext);
@@ -30,6 +35,7 @@ const Game = ({ language, changeWord, chosen }) => {
         <section>
             game
             <p>{ word }</p>
+            <Hangman failures={getNumberFailures(word.split(''), chosen)} />
             <Word>
                 {
                     word.split('').map((letter, index) => (
