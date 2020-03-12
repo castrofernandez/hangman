@@ -23,6 +23,7 @@ const Item = styled.li`
     text-align: center;
     text-transform: lowercase;
     border: 3px solid transparent;
+    font-weight: bold;
 
     &.active {
         border-color: ${STYLES.colours.selected};
@@ -39,7 +40,8 @@ const Anchor = styled.a`
 `;
 
 const Help = styled.p`
-    margin: 0;
+    margin: 0 0 5px 0;
+    font-family: ${STYLES.fonts.help};
     text-align: right;
     text-transform: lowercase;
     color: ${STYLES.colours.help};

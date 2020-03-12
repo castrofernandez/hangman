@@ -1,4 +1,4 @@
-const SELECTED = '#E30535';
+const SELECTED = '#ED0033';
 
 const styles = {
     colours: {
@@ -6,14 +6,14 @@ const styles = {
             failed: '#555555',
             notFailed: '#F1F1F1'
         },
-        help: '#999999',
+        help: '#BBBBBB',
         selected: SELECTED,
         guessed: SELECTED,
         notGuessed: '#AAAAAA'
     },
     fonts: {
         default: '"Gloria Hallelujah", cursive',
-        title: '"Permanent Marker", cursive'
+        help: '"Permanent Marker", cursive'
     }
 };
 

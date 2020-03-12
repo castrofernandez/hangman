@@ -10,9 +10,14 @@ import Hangman from './hangman/hangman';
 import FinishedBar from './finishedBar';
 
 const Board = styled.section`
+    position: relative;
+`;
+
+const BoardWrapper = styled.div`
     display: flex;
     flex-direction: row;
     margin-top: 20px;
+    opacity: ${props => props.finished ? '0.5' : '1'};
 
     > * {
         flex: 1 1 auto;
@@ -47,16 +52,18 @@ const Game = ({ language, changeWord, chosen, failures, finished, success }) => 
     return (
         <React.Fragment>
             <Board>
-                <HangManWrapper>
-                    <Hangman failures={failures.length} />
-                    <FinishedBar finished={finished} success={success} onClick={onChangeWord} />
-                </HangManWrapper>
-                <AvailableLetters finished={finished} />
+                <BoardWrapper finished={finished}>
+                    <HangManWrapper>
+                        <Hangman failures={failures.length} />
+                    </HangManWrapper>
+                    <AvailableLetters finished={finished} />
+                </BoardWrapper>
+                <FinishedBar finished={finished} success={success} onClick={onChangeWord} />
             </Board>
             <Word>
                 {
                     word.split('').map((letter, index) => (
-                        <WordLetter key={index} letter={letter} guessed={chosen.includes(letter)} />)
+                        <WordLetter key={index} letter={letter} guessed={chosen.includes(letter)} finished={finished} />)
                     )
                 }
             </Word>

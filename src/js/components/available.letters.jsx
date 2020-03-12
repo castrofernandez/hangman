@@ -16,7 +16,8 @@ const Panel = styled.div`
 
 const Help = styled.p`
     margin: 0;
-    font-size: 15px;
+    font-family: ${STYLES.fonts.help};
+    font-size: 20px;
     color: ${STYLES.colours.help};
     text-align: right;
     text-transform: lowercase;

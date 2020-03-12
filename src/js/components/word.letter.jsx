@@ -9,15 +9,24 @@ const Letter = styled.span`
     margin: 0 10px;
     border-bottom: 5px solid ${STYLES.colours.help};
     padding-bottom: 15px;
+
+    &.finished.not-guessed {
+        color: ${STYLES.colours.selected};
+    }
 `;
 
-const WordLetter = ({ letter, guessed }) => (
-    <Letter>{ guessed ? letter : '*' }</Letter>
+const getClassName = (guessed, finished) => `${guessed ? 'guessed' : 'not-guessed'} ${finished ? 'finished' : 'not-finished'}`;
+
+const WordLetter = ({ letter, guessed, finished }) => (
+    <Letter className={getClassName(guessed, finished)}>
+        { guessed || finished ? letter : '*' }
+    </Letter>
 );
 
 WordLetter.propTypes = {
     letter: PropTypes.string.isRequired,
-    guessed: PropTypes.bool
+    guessed: PropTypes.bool,
+    finished: PropTypes.bool
 };
 
 export default WordLetter;

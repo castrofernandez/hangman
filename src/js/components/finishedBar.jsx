@@ -1,13 +1,27 @@
 import React, { useContext } from 'react';
 import PropTypes from 'prop-types';
 import TranslationContext from '../context/translations';
+import styled from 'styled-components';
+import STYLES from '../utils/styles';
+
+const Bar = styled.h2`
+    width: 100%;
+    margin: 0;
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    font-size: 90px;
+    color: ${STYLES.colours.selected};
+    transform: translate(-50%, -50%) rotate(-10deg);
+    text-align: center;
+`;
 
 const FinishedBar = ({ finished, success, onClick }) => {
     const translations = useContext(TranslationContext);
 
     const finishedTitle = () => success ? translations.youWin : translations.youLose;
 
-    return finished ? <h2 onClick={onClick}>{ finishedTitle() }</h2> : <React.Fragment />;
+    return finished ? <Bar onClick={onClick}>{ finishedTitle() }</Bar> : <React.Fragment />;
 };
 
 FinishedBar.propTypes = {
