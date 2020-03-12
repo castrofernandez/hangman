@@ -1,10 +1,15 @@
+const SELECTED = '#E30535';
+
 const styles = {
     colours: {
         hangman: {
             failed: '#555555',
             notFailed: '#F1F1F1'
         },
-        help: '#999999'
+        help: '#999999',
+        selected: SELECTED,
+        guessed: SELECTED,
+        notGuessed: '#AAAAAA'
     },
     fonts: {
         default: '"Gloria Hallelujah", cursive',

@@ -17,15 +17,19 @@ const List = styled.ul`
 `;
 
 const Item = styled.li`
-    min-width: 55px;
-    padding: 10px;
+    min-width: 53px;
+    padding: 8px;
     border-radius: 50%;
     text-align: center;
     text-transform: lowercase;
-    border: 2px solid transparent;
+    border: 3px solid transparent;
 
     &.active {
-        border-color: red;
+        border-color: ${STYLES.colours.selected};
+        
+        a {
+            color: ${STYLES.colours.selected};
+        }
     }
 `;
 

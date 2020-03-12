@@ -3,26 +3,28 @@ import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
 import letterContainer from '../containers/letter.container';
+import STYLES from '../utils/styles';
 
 const Letter = styled.a`
     display: inline-block;
     font-size: 30px;
-    padding: 10px;
+    padding: 8px;
     margin: 4px;
     cursor: pointer;
-    border: 3px solid transparent;
+    border: 5px solid transparent;
     border-radius: 50%;
-    min-width: 60px;
+    min-width: 85px;
     text-align: center;
 
     &.disabled {
-        color: gray;
+        color: ${STYLES.colours.notGuessed};
         cursor: default;
-        border-color: gray;
+        border-color: ${STYLES.colours.notGuessed};
         text-decoration: line-through;
 
         &.contained {
-            border-color: red;
+            color: ${STYLES.colours.guessed};
+            border-color: ${STYLES.colours.guessed};
             text-decoration: none;
         }
     }

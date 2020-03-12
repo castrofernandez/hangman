@@ -21,12 +21,17 @@ npm install
 npm start
 ```
 
-3. Build
+3. Watch
+```shell
+npm run watch
+```
+
+4. Build
 ```shell
 npm run build
 ```
 
-4. Run tests
+5. Run tests
 ```shell
 npm test
 ```

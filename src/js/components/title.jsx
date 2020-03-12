@@ -8,6 +8,7 @@ const TheTitle = styled.h1`
     font-size: 60px;
     line-height: 40px;
     transform: rotate(-2deg);
+    text-transform: lowercase;
 `;
 
 const Title = ({ }) => {

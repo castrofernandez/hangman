@@ -4,6 +4,7 @@ import styled from 'styled-components';
 
 import TranslationContext from '../context/translations';
 import AvailableLetter from './available.letter';
+import STYLES from '../utils/styles';
 
 const ALL_LETTERS = 'abcdefghijklmnopqrstuvwxyz'.split('');
 
@@ -13,12 +14,20 @@ const Panel = styled.div`
     flex-wrap: wrap;
 `;
 
+const Help = styled.p`
+    margin: 0;
+    font-size: 15px;
+    color: ${STYLES.colours.help};
+    text-align: right;
+    text-transform: lowercase;
+`;
+
 const AvailableLetters = ({ finished }) => {
     const translations = useContext(TranslationContext);
 
     return (
         <section>
-            <p>{ translations.selectLetter }</p>
+            <Help>{ translations.selectLetter }</Help>
             <Panel>
                 {
                     ALL_LETTERS.map((letter, index) => (

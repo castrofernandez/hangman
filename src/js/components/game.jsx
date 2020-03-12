@@ -9,6 +9,21 @@ import AvailableLetters from './available.letters';
 import Hangman from './hangman/hangman';
 import FinishedBar from './finishedBar';
 
+const Board = styled.section`
+    display: flex;
+    flex-direction: row;
+    margin-top: 40px;
+
+    > * {
+        flex: 1 1 auto;
+    }
+`;
+
+const HangManWrapper = styled.div`
+    width: 80%;
+    margin-right: 20px;
+`;
+
 const Word = styled.div`
     display: flex;
     justify-content: center;
@@ -29,10 +44,14 @@ const Game = ({ language, changeWord, chosen, failures, finished, success }) => 
     useEffect(onChangeWord, [language]);
 
     return (
-        <section>
-            <p>{ word } finished: { finished ? 'true' : 'false' } success: { success ? 'true' : 'false' }</p>
-            <Hangman failures={failures.length} />
-            <FinishedBar finished={finished} success={success} onClick={onChangeWord} />
+        <React.Fragment>
+            <Board>
+                <HangManWrapper>
+                    <Hangman failures={failures.length} />
+                    <FinishedBar finished={finished} success={success} onClick={onChangeWord} />
+                </HangManWrapper>
+                <AvailableLetters finished={finished} />
+            </Board>
             <Word>
                 {
                     word.split('').map((letter, index) => (
@@ -40,8 +59,7 @@ const Game = ({ language, changeWord, chosen, failures, finished, success }) => 
                     )
                 }
             </Word>
-            <AvailableLetters finished={finished} />
-        </section>
+        </React.Fragment>
     );
 };
 
