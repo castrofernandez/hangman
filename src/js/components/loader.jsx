@@ -9,7 +9,7 @@ const Loading = styled.svg`
     height: 120px;
 `;
 
-const Loader = ({ }) => (
+const Loader = () => (
     <Loading fill={STYLES.colours.selected} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="32px" height="32px">
         <path d="M 16 4 L 16 6 C 21.535156 6 26 10.464844 26 16
             C 26 21.535156 21.535156 26 16 26 C 10.464844 26 6 21.535156 6 16

@@ -11,7 +11,7 @@ const TheTitle = styled.h1`
     text-transform: lowercase;
 `;
 
-const Title = ({ }) => {
+const Title = () => {
     const translations = useContext(TranslationContext);
 
     return <TheTitle>{ translations.title }</TheTitle>;

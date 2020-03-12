@@ -2,7 +2,7 @@ import React from 'react';
 
 import LanguageSelector from './language.selector';
 
-const Header = ({ }) => (
+const Header = () => (
     <header>
         <LanguageSelector />
     </header>
