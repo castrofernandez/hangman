@@ -33,7 +33,7 @@ module.exports = merge(common, {
             title: 'React+Redux hangman',
             inject: false,
             template: require('html-webpack-template'),
-            bodyHtmlSnippet :'<main class="main" id="app"></main>'
+            bodyHtmlSnippet: '<link href="https://fonts.googleapis.com/css?family=Gloria+Hallelujah|Permanent+Marker" rel="stylesheet"></link><main class="main" id="app"></main>'
         })   
     ]
 });

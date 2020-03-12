@@ -3,7 +3,12 @@ const styles = {
         hangman: {
             failed: '#555555',
             notFailed: '#F1F1F1'
-        }
+        },
+        help: '#999999'
+    },
+    fonts: {
+        default: '"Gloria Hallelujah", cursive',
+        title: '"Permanent Marker", cursive'
     }
 };
 

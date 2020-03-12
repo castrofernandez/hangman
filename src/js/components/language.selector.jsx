@@ -5,6 +5,7 @@ import styled from 'styled-components';
 import LANGUAGES from '../constants/languages';
 import languageContainer from '../containers/language.container';
 import TranslationContext from '../context/translations';
+import STYLES from '../utils/styles';
 
 const List = styled.ul`
     margin: 0;
@@ -12,24 +13,32 @@ const List = styled.ul`
     list-style: none;
     display: flex;
     flex-direction: row;
+    justify-content: flex-end;
 `;
 
 const Item = styled.li`
+    min-width: 55px;
     padding: 10px;
     border-radius: 50%;
+    text-align: center;
+    text-transform: lowercase;
+    border: 2px solid transparent;
 
     &.active {
-        background-color: red;
-
-        a {
-            color: white;
-        }
+        border-color: red;
     }
 `;
 
 const Anchor = styled.a`
     text-decoration: none;
     color: #333;
+`;
+
+const Help = styled.p`
+    margin: 0;
+    text-align: right;
+    text-transform: lowercase;
+    color: ${STYLES.colours.help};
 `;
 
 const onLanguageChange = (changeLanguage, id) => (e) => {
@@ -42,7 +51,7 @@ const LanguageSelector = ({ language, changeLanguage }) => {
 
     return (
         <React.Fragment>
-            <span>{ translations.selectLanguage }</span>
+            <Help>{ translations.selectLanguage }</Help>
             <List>
                 {Object.entries(LANGUAGES).map(([id, name]) => {
                     return (
