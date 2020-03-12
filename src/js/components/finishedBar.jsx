@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import TranslationContext from '../context/translations';
 import styled from 'styled-components';
 import STYLES from '../utils/styles';
+import Loader from './loader';
 
 const Bar = styled.h2`
     width: 100%;
@@ -14,6 +15,7 @@ const Bar = styled.h2`
     color: ${STYLES.colours.selected};
     transform: translate(-50%, -50%) rotate(-10deg);
     text-align: center;
+    cursor: pointer;
 `;
 
 const FinishedBar = ({ finished, success, onClick }) => {
@@ -21,7 +23,7 @@ const FinishedBar = ({ finished, success, onClick }) => {
 
     const finishedTitle = () => success ? translations.youWin : translations.youLose;
 
-    return finished ? <Bar onClick={onClick}>{ finishedTitle() }</Bar> : <React.Fragment />;
+    return finished ? <Bar onClick={onClick}>{ finishedTitle() }<Loader /></Bar> : <React.Fragment />;
 };
 
 FinishedBar.propTypes = {

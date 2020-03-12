@@ -15,7 +15,9 @@ const Letter = styled.span`
     }
 `;
 
-const getClassName = (guessed, finished) => `${guessed ? 'guessed' : 'not-guessed'} ${finished ? 'finished' : 'not-finished'}`;
+const getClassName = (guessed, finished) => {
+    return `${guessed ? 'guessed' : 'not-guessed'} ${finished ? 'finished' : 'not-finished'}`;
+};
 
 const WordLetter = ({ letter, guessed, finished }) => (
     <Letter className={getClassName(guessed, finished)}>

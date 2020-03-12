@@ -42,9 +42,14 @@ const Game = ({ language, changeWord, chosen, failures, finished, success }) => 
     const [word, setWord] = useState('');
 
     const onChangeWord = () => {
-        const word = getRandomWord(translations.words);
-        changeWord(word);
-        setWord(word);
+        let newWord = getRandomWord(translations.words);
+
+        while (newWord === word) {
+            newWord = getRandomWord(translations.words);
+        }
+
+        changeWord(newWord);
+        setWord(newWord);
     };
 
     useEffect(onChangeWord, [language]);
@@ -63,7 +68,8 @@ const Game = ({ language, changeWord, chosen, failures, finished, success }) => 
             <Word>
                 {
                     word.split('').map((letter, index) => (
-                        <WordLetter key={index} letter={letter} guessed={chosen.includes(letter)} finished={finished} />)
+                        <WordLetter key={index} letter={letter}
+                            guessed={chosen.includes(letter)} finished={finished} />)
                     )
                 }
             </Word>
