@@ -15,11 +15,7 @@ const Word = styled.div`
 
 const getRandomWord = ({ animals = [] }) => animals[Math.floor(Math.random() * animals.length)];
 
-const getGuessed = (word, chosen) => chosen.filter((letter) => word.includes(letter));
-
-const getNumberFailures = (word = [], chosen = []) => chosen.length - getGuessed(word, chosen).length;
-
-const Game = ({ language, changeWord, chosen }) => {
+const Game = ({ language, changeWord, chosen, failures, finished, success }) => {
     const translations = useContext(TranslationContext);
     const [word, setWord] = useState('');
 
@@ -33,9 +29,8 @@ const Game = ({ language, changeWord, chosen }) => {
 
     return (
         <section>
-            game
-            <p>{ word }</p>
-            <Hangman failures={getNumberFailures(word.split(''), chosen)} />
+            <p>{ word } finished: { finished ? 'true' : 'false' } success: { success ? 'true' : 'false' }</p>
+            <Hangman failures={failures.length} />
             <Word>
                 {
                     word.split('').map((letter, index) => (
@@ -51,7 +46,10 @@ const Game = ({ language, changeWord, chosen }) => {
 Game.propTypes = {
     language: PropTypes.string.isRequired,
     changeWord: PropTypes.func.isRequired,
-    chosen: PropTypes.array.isRequired
+    chosen: PropTypes.array.isRequired,
+    failures: PropTypes.array.isRequired,
+    finished: PropTypes.bool.isRequired,
+    success: PropTypes.bool.isRequired
 };
 
 export default gameContainer(Game);

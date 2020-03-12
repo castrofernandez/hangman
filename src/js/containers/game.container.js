@@ -7,7 +7,10 @@ export default function(component) {
     const mapStateToProps = function(state) {
         return {
             language: state.language,
-            chosen: state.chosen
+            chosen: state.chosen,
+            failures: state.failures,
+            finished: state.finished,
+            success: state.success
         };
     };
 

@@ -2,11 +2,13 @@ const styles = {
     colours: {
         hangman: {
             failed: '#555555',
-            notFailed: '#CCCCCC'
+            notFailed: '#EEEEEE'
         }
     }
 };
 
 export default styles;
 
-export const getHangmanColour = (failed = false) => failed ? styles.colours.hangman.failed : styles.colours.hangman.notFailed;
+export const getHangmanColour = (failed = false) => {
+    return failed ? styles.colours.hangman.failed : styles.colours.hangman.notFailed;
+};

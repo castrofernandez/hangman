@@ -10,20 +10,17 @@ import Arms from './arms';
 import Legs from './legs';
 
 const Hangman = ({ failures }) => (
-    <React.Fragment>
-        <span>hangman {failures}</span>
-        <svg version="1.1" xmlns="http://www.w3.org/2000/svg" x="0" y="0" width="500" height="500" viewBox="0, 0, 500, 500">
-            <g>
-                <Deck failed={failures > 0} />
-                <Post failed={failures > 1} />
-                <Bar failed={failures > 2} />
-                <Head failed={failures > 3} />
-                <Body failed={failures > 4} />
-                <Arms failed={failures > 5} />
-                <Legs failed={failures > 6} />
-            </g>
-        </svg>
-    </React.Fragment>
+    <svg version="1.1" xmlns="http://www.w3.org/2000/svg" x="0" y="0" width="500" height="500" viewBox="0, 0, 500, 500">
+        <g>
+            <Deck failed={failures > 0} />
+            <Post failed={failures > 1} />
+            <Bar failed={failures > 2} />
+            <Arms failed={failures > 5} />
+            <Legs failed={failures > 6} />
+            <Body failed={failures > 4} />
+            <Head failed={failures > 3} />
+        </g>
+    </svg>
 );
 
 Hangman.propTypes = {

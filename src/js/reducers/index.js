@@ -6,15 +6,21 @@ import languageFilter from './language';
 import remainingLettersFilter from './remaining.letters';
 import chosenLettersFilter from './chosen.letters';
 import wordFilter from './word';
+import finishedFilter from './finished';
 
 QueryString.load();
 
 const reducers = (state = {}, action) => {
-    return {
+    const partial = {
         language: languageFilter(state.language, action),
         remaining: remainingLettersFilter(state.remaining, action),
         chosen: chosenLettersFilter(state.chosen, action),
         word: wordFilter(state.word, action)
+    };
+
+    return {
+        ...partial,
+        ...finishedFilter(partial)
     };
 };
 

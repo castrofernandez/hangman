@@ -43,7 +43,8 @@ const Bar = ({ failed }) => (
             C119.594,17.067 116.483,20.224 116.511,24.09 C116.539,27.956
             119.696,31.067 123.562,31.038 L123.562,31.038" fill={getHangmanColour(failed)}/>
         <path d="M119.451,110.767 C149.848,77.09 149.027,69.521 186.22,40.674"
-            fillOpacity="0" stroke={getHangmanColour(failed)} strokeWidth="10" strokeLinecap="round" strokeLinejoin="round"/>
+            fillOpacity="0" stroke={getHangmanColour(failed)} strokeWidth="10"
+            strokeLinecap="round" strokeLinejoin="round"/>
     </g>
 );
 
