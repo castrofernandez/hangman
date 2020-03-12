@@ -7,6 +7,7 @@ import gameContainer from '../containers/game.container';
 import WordLetter from './word.letter';
 import AvailableLetters from './available.letters';
 import Hangman from './hangman/hangman';
+import FinishedBar from './finishedBar';
 
 const Word = styled.div`
     display: flex;
@@ -31,6 +32,7 @@ const Game = ({ language, changeWord, chosen, failures, finished, success }) => 
         <section>
             <p>{ word } finished: { finished ? 'true' : 'false' } success: { success ? 'true' : 'false' }</p>
             <Hangman failures={failures.length} />
+            <FinishedBar finished={finished} success={success} />
             <Word>
                 {
                     word.split('').map((letter, index) => (
@@ -38,7 +40,7 @@ const Game = ({ language, changeWord, chosen, failures, finished, success }) => 
                     )
                 }
             </Word>
-            <AvailableLetters />
+            <AvailableLetters finished={finished} />
         </section>
     );
 };

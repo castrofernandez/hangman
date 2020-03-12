@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-// import PropTypes from 'prop-types';
+import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
 import TranslationContext from '../context/translations';
@@ -13,7 +13,7 @@ const Panel = styled.div`
     flex-wrap: wrap;
 `;
 
-const AvailableLetters = ({ }) => {
+const AvailableLetters = ({ finished }) => {
     const translations = useContext(TranslationContext);
 
     return (
@@ -21,7 +21,9 @@ const AvailableLetters = ({ }) => {
             <p>{ translations.selectLetter }</p>
             <Panel>
                 {
-                    ALL_LETTERS.map((letter, index) => <AvailableLetter key={index} letter={letter} />)
+                    ALL_LETTERS.map((letter, index) => (
+                        <AvailableLetter key={index} letter={letter} finished={finished} />)
+                    )
                 }
             </Panel>
         </section>
@@ -29,7 +31,7 @@ const AvailableLetters = ({ }) => {
 };
 
 AvailableLetters.propTypes = {
-
+    finished: PropTypes.bool.isRequired
 };
 
 export default AvailableLetters;

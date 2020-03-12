@@ -28,7 +28,17 @@ const Letter = styled.a`
     }
 `;
 
-const AvailableLetter = ({ letter, word, addLetter }) => {
+const getContainedClass = (isContained) => isContained ? 'contained' : '';
+
+const getEnabledClass = (enabled) => enabled ? 'enabled' : 'disabled';
+
+const getFinishedClass = (finished) => finished ? 'finished' : '';
+
+const getClassName = (isContained, enabled, finished) => {
+    return `${getContainedClass(isContained)} ${getEnabledClass(enabled)} ${getFinishedClass(finished)}`;
+};
+
+const AvailableLetter = ({ letter, word, addLetter, finished }) => {
     const [enabled, setEnabled] = useState(true);
     const isContained = word.split('').includes(letter);
 
@@ -39,15 +49,16 @@ const AvailableLetter = ({ letter, word, addLetter }) => {
     };
 
     return (
-        <Letter className={`${isContained ? 'contained' : ''} ${enabled ? 'enabled' : 'disabled'}`}
-            onClick={onClick}>{ letter }</Letter>
+        <Letter className={getClassName(isContained, enabled, finished)}
+            onClick={finished ? () => {} : onClick}>{ letter }</Letter>
     );
 };
 
 AvailableLetter.propTypes = {
     letter: PropTypes.string.isRequired,
     word: PropTypes.string.isRequired,
-    addLetter: PropTypes.func.isRequired
+    addLetter: PropTypes.func.isRequired,
+    finished: PropTypes.bool.isRequired
 };
 
 export default letterContainer(AvailableLetter);
