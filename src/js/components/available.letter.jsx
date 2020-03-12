@@ -5,7 +5,6 @@ import styled from 'styled-components';
 import letterContainer from '../containers/letter.container';
 
 const Letter = styled.a`
-    box-sizing: border-box;
     display: inline-block;
     font-size: 30px;
     padding: 10px;

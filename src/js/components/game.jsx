@@ -6,7 +6,7 @@ import TranslationContext from '../context/translations';
 import gameContainer from '../containers/game.container';
 import WordLetter from './word.letter';
 import AvailableLetters from './available.letters';
-import Hangman from './hangman';
+import Hangman from './hangman/hangman';
 
 const Word = styled.div`
     display: flex;
