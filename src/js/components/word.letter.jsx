@@ -1,11 +1,14 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
+import STYLES from '../utils/styles';
 
 const Letter = styled.span`
-    font-size: 60px;
+    font-size: 80px;
+    line-height: 85px;
     margin: 0 10px;
-    border-bottom: 3px solid gray;
+    border-bottom: 5px solid ${STYLES.colours.help};
+    padding-bottom: 15px;
 `;
 
 const WordLetter = ({ letter, guessed }) => (

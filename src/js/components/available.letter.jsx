@@ -17,20 +17,45 @@ const Letter = styled.a`
     text-align: center;
 
     &.disabled {
-        color: ${STYLES.colours.notGuessed};
+        position: relative;
         cursor: default;
-        border-color: ${STYLES.colours.notGuessed};
-        text-decoration: line-through;
+
+        &.not-contained {
+            color: ${STYLES.colours.notGuessed};
+
+            &:before {
+                content: '';
+                position: absolute;
+                left: 0;
+                top: 50%;
+                width: 100%;
+                height: 15px;
+                background-color: ${STYLES.colours.notGuessed};
+                transform: rotate(-45deg);
+                opacity: 0.6;
+            }
+
+            &:after {
+                content: '';
+                position: absolute;
+                left: 0;
+                top: 50%;
+                width: 100%;
+                height: 15px;
+                background-color: ${STYLES.colours.notGuessed};
+                transform: rotate(45deg);
+                opacity: 0.5;
+            }
+        }
 
         &.contained {
             color: ${STYLES.colours.guessed};
             border-color: ${STYLES.colours.guessed};
-            text-decoration: none;
         }
     }
 `;
 
-const getContainedClass = (isContained) => isContained ? 'contained' : '';
+const getContainedClass = (isContained) => isContained ? 'contained' : 'not-contained';
 
 const getEnabledClass = (enabled) => enabled ? 'enabled' : 'disabled';
 

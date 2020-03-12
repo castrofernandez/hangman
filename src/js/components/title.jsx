@@ -5,7 +5,7 @@ import styled from 'styled-components';
 const TheTitle = styled.h1`
     margin: 0;
     text-align: center;
-    font-size: 60px;
+    font-size: 80px;
     line-height: 40px;
     transform: rotate(-2deg);
     text-transform: lowercase;

@@ -12,7 +12,7 @@ import FinishedBar from './finishedBar';
 const Board = styled.section`
     display: flex;
     flex-direction: row;
-    margin-top: 40px;
+    margin-top: 20px;
 
     > * {
         flex: 1 1 auto;
@@ -22,6 +22,7 @@ const Board = styled.section`
 const HangManWrapper = styled.div`
     width: 80%;
     margin-right: 20px;
+    padding-top: 45px;
 `;
 
 const Word = styled.div`
