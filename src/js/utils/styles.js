@@ -2,7 +2,7 @@ const styles = {
     colours: {
         hangman: {
             failed: '#555555',
-            notFailed: '#EEEEEE'
+            notFailed: '#F1F1F1'
         }
     }
 };

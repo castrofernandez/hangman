@@ -32,7 +32,7 @@ const Game = ({ language, changeWord, chosen, failures, finished, success }) => 
         <section>
             <p>{ word } finished: { finished ? 'true' : 'false' } success: { success ? 'true' : 'false' }</p>
             <Hangman failures={failures.length} />
-            <FinishedBar finished={finished} success={success} />
+            <FinishedBar finished={finished} success={success} onClick={onChangeWord} />
             <Word>
                 {
                     word.split('').map((letter, index) => (
