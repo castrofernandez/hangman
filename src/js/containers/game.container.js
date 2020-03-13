@@ -8,7 +8,6 @@ export default function(component) {
         return {
             language: state.language,
             chosen: state.chosen,
-            failures: state.failures,
             finished: state.finished
         };
     };

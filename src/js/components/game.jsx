@@ -6,7 +6,6 @@ import TranslationContext from '../context/translations';
 import gameContainer from '../containers/game.container';
 import WordLetter from './word.letter';
 import AvailableLetters from './available.letters';
-import Hangman from './hangman/hangman';
 import STYLES from '../utils/styles';
 
 const Board = styled.section`
@@ -28,18 +27,6 @@ const BoardWrapper = styled.div`
     }
 `;
 
-const HangManWrapper = styled.div`
-    width: 80%;
-    margin-right: 20px;
-    padding-top: 45px;
-
-    @media (max-width: ${STYLES.sizes.tablet}px) {
-        width: 100%;
-        margin-right: 0;
-        text-align: center;
-    } 
-`;
-
 const Word = styled.div`
     display: flex;
     justify-content: center;
@@ -47,7 +34,7 @@ const Word = styled.div`
 
 const getRandomWord = ({ animals = [] }) => animals[Math.floor(Math.random() * animals.length)];
 
-const Game = ({ language, changeWord, chosen, failures, finished }) => {
+const Game = ({ language, changeWord, chosen, finished }) => {
     const translations = useContext(TranslationContext);
     const [word, setWord] = useState('');
 
@@ -68,9 +55,6 @@ const Game = ({ language, changeWord, chosen, failures, finished }) => {
         <React.Fragment>
             <Board>
                 <BoardWrapper finished={finished}>
-                    <HangManWrapper>
-                        <Hangman failures={failures.length} />
-                    </HangManWrapper>
                     <AvailableLetters finished={finished} />
                 </BoardWrapper>
             </Board>
@@ -90,7 +74,6 @@ Game.propTypes = {
     language: PropTypes.string.isRequired,
     changeWord: PropTypes.func.isRequired,
     chosen: PropTypes.array.isRequired,
-    failures: PropTypes.array.isRequired,
     finished: PropTypes.bool.isRequired
 };
 

@@ -6,7 +6,6 @@ const failuresFilter = ({ word = '', chosen = [], remaining = [] }) => {
     const finished = failures.length >= CONSTANTS.failureNumber || guessed;
 
     return {
-        failures,
         finished
     };
 };
