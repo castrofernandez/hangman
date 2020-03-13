@@ -6,7 +6,6 @@ import TranslationContext from './context/translations';
 import Title from './components/title';
 import { getTranslations } from './translations';
 import languageContainer from './containers/language.container';
-import Game from './components/game';
 
 const Wrapper = styled.div`
     max-width: 1000px;
@@ -18,7 +17,6 @@ const App = ({ language }) => (
         <Wrapper>
             <Header />
             <Title />
-            <Game />
         </Wrapper>
     </TranslationContext.Provider>
 );
