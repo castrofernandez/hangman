@@ -5,27 +5,6 @@ import styled from 'styled-components';
 import TranslationContext from '../context/translations';
 import gameContainer from '../containers/game.container';
 import WordLetter from './word.letter';
-import AvailableLetters from './available.letters';
-import STYLES from '../utils/styles';
-
-const Board = styled.section`
-    position: relative;
-`;
-
-const BoardWrapper = styled.div`
-    display: flex;
-    flex-direction: row;
-    margin-top: 20px;
-    opacity: ${props => props.finished ? '0.5' : '1'};
-
-    @media (max-width: ${STYLES.sizes.tablet}px) {
-        display: block;
-    } 
-
-    > * {
-        flex: 1 1 auto;
-    }
-`;
 
 const Word = styled.div`
     display: flex;
@@ -53,11 +32,6 @@ const Game = ({ language, changeWord, chosen, finished }) => {
 
     return (
         <React.Fragment>
-            <Board>
-                <BoardWrapper finished={finished}>
-                    <AvailableLetters finished={finished} />
-                </BoardWrapper>
-            </Board>
             <Word>
                 {
                     word.split('').map((letter, index) => (
