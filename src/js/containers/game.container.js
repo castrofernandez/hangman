@@ -9,8 +9,7 @@ export default function(component) {
             language: state.language,
             chosen: state.chosen,
             failures: state.failures,
-            finished: state.finished,
-            success: state.success
+            finished: state.finished
         };
     };
 

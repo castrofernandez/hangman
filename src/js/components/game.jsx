@@ -7,7 +7,6 @@ import gameContainer from '../containers/game.container';
 import WordLetter from './word.letter';
 import AvailableLetters from './available.letters';
 import Hangman from './hangman/hangman';
-import FinishedBar from './finishedBar';
 import STYLES from '../utils/styles';
 
 const Board = styled.section`
@@ -48,7 +47,7 @@ const Word = styled.div`
 
 const getRandomWord = ({ animals = [] }) => animals[Math.floor(Math.random() * animals.length)];
 
-const Game = ({ language, changeWord, chosen, failures, finished, success }) => {
+const Game = ({ language, changeWord, chosen, failures, finished }) => {
     const translations = useContext(TranslationContext);
     const [word, setWord] = useState('');
 
@@ -74,7 +73,6 @@ const Game = ({ language, changeWord, chosen, failures, finished, success }) => 
                     </HangManWrapper>
                     <AvailableLetters finished={finished} />
                 </BoardWrapper>
-                <FinishedBar finished={finished} success={success} onClick={onChangeWord} />
             </Board>
             <Word>
                 {
@@ -93,8 +91,7 @@ Game.propTypes = {
     changeWord: PropTypes.func.isRequired,
     chosen: PropTypes.array.isRequired,
     failures: PropTypes.array.isRequired,
-    finished: PropTypes.bool.isRequired,
-    success: PropTypes.bool.isRequired
+    finished: PropTypes.bool.isRequired
 };
 
 export default gameContainer(Game);

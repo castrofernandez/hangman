@@ -7,8 +7,7 @@ const failuresFilter = ({ word = '', chosen = [], remaining = [] }) => {
 
     return {
         failures,
-        finished,
-        success: finished && guessed
+        finished
     };
 };
 
