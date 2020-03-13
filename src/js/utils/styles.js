@@ -14,6 +14,13 @@ const styles = {
     fonts: {
         default: '"Gloria Hallelujah", cursive',
         help: '"Permanent Marker", cursive'
+    },
+    sizes: {
+        mobile: 767,
+        bigPhablet: 550,
+        tablet: 1023,
+        tabletLandscape: 1024,
+        smallDesktop: 1300
     }
 };
 

@@ -8,6 +8,7 @@ import WordLetter from './word.letter';
 import AvailableLetters from './available.letters';
 import Hangman from './hangman/hangman';
 import FinishedBar from './finishedBar';
+import STYLES from '../utils/styles';
 
 const Board = styled.section`
     position: relative;
@@ -19,6 +20,10 @@ const BoardWrapper = styled.div`
     margin-top: 20px;
     opacity: ${props => props.finished ? '0.5' : '1'};
 
+    @media (max-width: ${STYLES.sizes.tablet}px) {
+        display: block;
+    } 
+
     > * {
         flex: 1 1 auto;
     }
@@ -28,6 +33,12 @@ const HangManWrapper = styled.div`
     width: 80%;
     margin-right: 20px;
     padding-top: 45px;
+
+    @media (max-width: ${STYLES.sizes.tablet}px) {
+        width: 100%;
+        margin-right: 0;
+        text-align: center;
+    } 
 `;
 
 const Word = styled.div`
