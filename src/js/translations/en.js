@@ -5,7 +5,7 @@ const translations = {
     youWin: 'You win',
     youLose: 'You lose',
     words: {
-        animals: ['crocodile', 'hippopotamus']
+        animals: ['crocodile', 'hippopotamus', 'cangaroo', 'squirrel', 'chimpanzee']
     }
 };
 
